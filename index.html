@@ -6,12 +6,7 @@
     <title>بۆ تاقانەکەم ئیمان</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* ڕێکخستنی گشتی بۆ ئایفۆن */
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body, html {
             margin: 0; padding: 0; width: 100%; height: 100%;
             overflow: hidden; background: #fff0f3;
@@ -19,109 +14,64 @@
             touch-action: manipulation;
         }
 
-        /* --- پاندای بچووک و فۆرماتکراو بۆ موبایل --- */
+        /* Panda Animation */
         #panda-zone {
-            position: fixed;
-            bottom: 30px;
-            left: -250px;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
+            position: fixed; bottom: 30px; left: -250px;
+            z-index: 1000; display: flex; align-items: center;
             transition: left 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-
-        .panda-body {
-            font-size: 45px; /* کەمێک بچووکتر بۆ موبایل */
-            animation: bounce 0.6s infinite alternate;
-        }
-
+        .panda-body { font-size: 45px; animation: bounce 0.6s infinite alternate; }
         .bubble {
-            background: white;
-            border: 2px solid #ff4d6d;
-            border-radius: 15px;
-            padding: 8px 12px;
-            margin-left: 10px;
-            font-weight: bold;
-            color: #ff4d6d;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            font-size: 0.9rem;
-            white-space: nowrap;
+            background: white; border: 2px solid #ff4d6d;
+            border-radius: 15px; padding: 8px 12px; margin-left: 10px;
+            font-weight: bold; color: #ff4d6d; font-size: 0.9rem;
+            white-space: nowrap; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
+        @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-8px); } }
 
-        @keyframes bounce {
-            from { transform: translateY(0); }
-            to { transform: translateY(-8px); }
-        }
-
-        /* --- شاشەی دەستپێک (دیاری) --- */
+        /* Intro Screen */
         #intro-screen {
             position: fixed; width: 100%; height: 100%;
             background: radial-gradient(circle, #ffdee9 0%, #b5fffc 100%);
             display: flex; flex-direction: column; justify-content: center;
-            align-items: center; z-index: 2000;
-            padding: 20px;
-            text-align: center;
+            align-items: center; z-index: 2000; text-align: center;
         }
-
         .gift { font-size: 120px; cursor: pointer; animation: wobble 0.8s infinite; }
-        
-        @keyframes wobble { 
-            0%, 100% { transform: rotate(-5deg); } 
-            50% { transform: rotate(5deg) scale(1.1); } 
-        }
+        @keyframes wobble { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg) scale(1.1); } }
 
-        /* --- کارتی نامە (قەبارەی ئایفۆن ١١ پرۆ ماکس) --- */
+        /* Main Card */
         #main-love-card {
-            display: none; 
-            position: relative; 
-            z-index: 100;
-            width: 90%; 
-            max-width: 400px; /* قەبارەی گونجاو بۆ موبایل */
-            margin: 8vh auto;
-            background: rgba(255, 255, 255, 0.92); 
-            backdrop-filter: blur(10px);
-            padding: 25px; 
-            border-radius: 30px; 
-            text-align: center;
-            border: 3px solid #fff; 
-            box-shadow: 0 15px 40px rgba(255, 77, 109, 0.2);
-            max-height: 75vh; 
-            overflow-y: auto;
-            animation: slideUp 1s ease;
+            display: none; position: relative; z-index: 100;
+            width: 90%; max-width: 400px; margin: 8vh auto;
+            background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(10px);
+            padding: 25px; border-radius: 30px; text-align: center;
+            border: 3px solid #fff; box-shadow: 0 15px 40px rgba(255, 77, 109, 0.2);
+            max-height: 75vh; overflow-y: auto;
         }
-
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        h1 { color: #ff4d6d; font-size: 1.8rem; margin-top: 0; }
+        h1 { color: #ff4d6d; font-size: 1.8rem; }
         .letter-content { line-height: 1.8; font-size: 1rem; color: #444; text-align: justify; }
 
         .heart {
             position: absolute; pointer-events: none;
-            animation: rise 4s linear forwards;
-            z-index: 50;
+            animation: rise 4s linear forwards; z-index: 50;
         }
-        @keyframes rise {
-            to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
-        }
+        @keyframes rise { to { transform: translateY(-110vh) rotate(360deg); opacity: 0; } }
     </style>
 </head>
 <body>
 
     <div id="intro-screen" onclick="startApp()">
         <div class="gift">🎁</div>
-        <h2 style="color:#ff4d6d; font-size: 1.2rem;">ئیمانەکەم، کلیک بکە و دیارییەکەت بکەرەوە... ❤️</h2>
+        <h2 style="color:#ff4d6d; font-size: 1.2rem; padding: 0 20px;">ئیمانەکەم، کلیک بکە و دیارییەکەت بکەرەوە... ❤️</h2>
     </div>
 
     <div id="yt-audio"></div>
 
     <div id="main-love-card">
-        <h1 style="font-family: 'Noto Sans Arabic';">بۆ شاژنەکەم ئیمان</h1>
+        <h1>بۆ شاژنەکەم ئیمان</h1>
         <div class="letter-content">
             ئیمانی خۆشەویستم،<br>
-            لەم ڕۆژەی ڤاڵەنتاینەدا، دەمەوێت پێت بڵێم کە تۆ هەموو شتێکی بۆ منیت. لە هەر بەیانییەکدا کە چاوم دەکەمەوە، یەکەم بیرکردنەوەم تۆیت، و لە هەر شەوێکدا پێش ئەوەی خەو لێم بکەوێت، دوا وێنەی لە مێشکمدا دێت تۆیت. تۆ ڕووناکی ژیانی منیت، ئەو خۆشی و ئارامییەی کە لە هیچ شوێنێکی تردا نادۆزمەوە. سوپاس دەکەم کە لە ژیانمدایت. هیوادارم هەمیشە لەگەڵ یەک بین، چونکە بێ تۆ ژیان واتای نییە لەلام.
+            لەم ڕۆژەی ڤاڵەنتاینەدا، دەمەوێت پێت بڵێم کە تۆ هەموو شتێکی بۆ منیت. تۆ ڕووناکی ژیانی منیت، ئەو خۆشی و ئارامییەی کە لە هیچ شوێنێکی تردا نادۆزمەوە. سوپاس دەکەم کە لە ژیانمدایت. هیوادارم هەمیشە لەگەڵ یەک بین.
         </div>
         <div style="font-size: 1.5rem; margin-top: 15px; font-weight: bold; color: #ff4d6d;">Drwd ❤️ Eman</div>
     </div>
@@ -136,20 +86,18 @@
         let player;
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('yt-audio', {
-                height: '0', width: '0', videoId: '5F44ot4Q1SZzEvkE',
-                playerVars: { 'autoplay': 1, 'controls': 0 }
+                height: '0', width: '0', 
+                videoId: '1-pE28AosRo', // FIXED VIDEO ID
+                playerVars: { 'autoplay': 1, 'controls': 0, 'loop': 1 }
             });
         }
 
         function startApp() {
-            if(player && player.playVideo) player.playVideo();
-            document.getElementById('intro-screen').style.opacity = '0';
-            setTimeout(() => {
-                document.getElementById('intro-screen').style.display = 'none';
-                document.getElementById('main-love-card').style.display = 'block';
-                runPanda();
-                setInterval(spawnHeart, 400);
-            }, 500);
+            if(player && player.playVideo) { player.playVideo(); }
+            document.getElementById('intro-screen').style.display = 'none';
+            document.getElementById('main-love-card').style.display = 'block';
+            runPanda();
+            setInterval(spawnHeart, 400);
         }
 
         const panda = document.getElementById('panda-zone');
@@ -187,24 +135,6 @@
             document.body.appendChild(h);
             setTimeout(() => h.remove(), 4000);
         }
-
-        // بۆ دەست لێدان لە شاشە (بۆ مۆبایل)
-        document.addEventListener('touchstart', (e) => {
-            const s = document.createElement('div');
-            s.innerHTML = '💖';
-            s.style.position = 'fixed';
-            s.style.left = e.touches[0].clientX + 'px';
-            s.style.top = e.touches[0].clientY + 'px';
-            s.style.pointerEvents = 'none';
-            s.style.zIndex = "3000";
-            document.body.appendChild(s);
-            setTimeout(() => {
-                s.style.transition = '0.8s';
-                s.style.transform = 'translateY(-40px) scale(1.5)';
-                s.style.opacity = '0';
-            }, 20);
-            setTimeout(() => s.remove(), 800);
-        });
     </script>
 </body>
 </html>
